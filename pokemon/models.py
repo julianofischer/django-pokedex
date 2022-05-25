@@ -1,5 +1,5 @@
-from tabnanny import verbose
 from django.db import models
+from colorfield.fields import ColorField
 
 # Create your models here.
 class Pokemon(models.Model):
@@ -23,8 +23,13 @@ class Pokemon(models.Model):
 
 class Tipo(models.Model):
     nome = models.CharField(max_length=100)
-    forcas = models.ManyToManyField('self', blank=True, verbose_name='Forças')
-    fraquezas = models.ManyToManyField('self', blank=True)
+    forcas = models.ManyToManyField('self',
+        blank=True,
+        symmetrical=True,
+        verbose_name='Forças',
+        related_name='fraquezas')
+
+    cor = ColorField(default="#FFFFFF")
 
     def __str__(self):
         return self.nome
