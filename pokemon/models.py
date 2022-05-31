@@ -25,9 +25,15 @@ class Tipo(models.Model):
     nome = models.CharField(max_length=100)
     forcas = models.ManyToManyField('self',
         blank=True,
-        symmetrical=True,
+        symmetrical=False,
         verbose_name='Forças',
-        related_name='fraquezas')
+        related_name='fraco_contra')
+    
+    fraquezas = models.ManyToManyField('self',
+        blank=True,
+        symmetrical=False,
+        verbose_name='Fraquezas',
+        related_name='forte_contra')
 
     cor = ColorField(default="#FFFFFF")
 
