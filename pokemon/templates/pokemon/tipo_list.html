@@ -1,19 +1,11 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    {% load static %}
-    <meta charset="utf-8">
-    <title>Pokedex</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <!-- <script src="script.js"></script> -->
-  </head>
-  <body>
-    <!-- page content -->
-    <h1>Tipos</h1>
-    <ul>
-        {% for tipo in object_list %}
-            <li>{{ tipo.nome }}</li>
-        {% endfor %}
-    </ul>
-  </body>
-</html>
+{% extends "pokemon/base.html" %}
+{% block title %} Tipos {% endblock %}
+
+{% block body %}
+<h1>Tipos</h1>
+<ul>
+    {% for tipo in object_list %}
+        <li>{{ tipo.nome }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

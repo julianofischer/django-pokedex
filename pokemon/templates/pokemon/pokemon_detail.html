@@ -1,15 +1,6 @@
-<html>
-  <head>
-    {% load static %}
-    <meta charset="utf-8">
-    <title>Pokedex</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <!-- <script src="script.js"></script> -->
-  </head>
-  <body>
-    <!-- page content -->
+{%block title%} {{ object.nome }} {% endblock%}
+{% block body %}
     <h1>Pokedex</h1>
     <h2>{{ object.nome }}</h2>
     <img src="{{object.foto.url}}">
-  </body>
-</html>
+{% endblock %}
