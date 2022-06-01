@@ -10,7 +10,8 @@ class Pokemon(models.Model):
     involucao = models.ForeignKey('self', on_delete=models.CASCADE, related_name='evolucoes', null=True, blank=True)
     foto = models.ImageField(upload_to='media')
     tipos = models.ManyToManyField('Tipo', blank=True)
-    slug = models.SlugField(max_length=100, allow_unicode=True)
+    slug = models.SlugField(default='', max_length=100,
+     allow_unicode=True)
 
     def __str__(self):
         return self.nome

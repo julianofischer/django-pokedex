@@ -1,4 +1,5 @@
-{%block title%} {{ object.nome }} {% endblock%}
+{% extends "pokemon/base.html" %}
+{% block title %} {{ object.nome }} {% endblock %}
 {% block body %}
     <h1>Pokedex</h1>
     <h2>{{ object.nome }}</h2>
