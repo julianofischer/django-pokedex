@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 from colorfield.fields import ColorField
 
 # Create your models here.
@@ -11,7 +12,11 @@ class Pokemon(models.Model):
     foto = models.ImageField(upload_to='media')
     tipos = models.ManyToManyField('Tipo', blank=True)
     slug = models.SlugField(default='', max_length=100,
-     allow_unicode=True)
+     allow_unicode=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.nome)
+        super(Pokemon, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.nome
