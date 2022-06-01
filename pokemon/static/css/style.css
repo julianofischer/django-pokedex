@@ -6,3 +6,32 @@ img {
     width: 200px;
     height: 200px;
 }
+
+.bg-gradient {
+    background: linear-gradient(#f2efff, #dfdefe, #ccdfff) fixed;
+}
+
+.pokedex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.pokemon-card {
+    border-radius: 5px;
+}
+
+.pokemon-card > img {
+    max-width: 30vw;
+    max-height: 30vh;
+    border-radius: 5px; 
+    border: 1px solid transparent;
+}
+
+.pokemon-card > img:hover {
+  cursor: pointer;
+  border: 1px solid gainsboro;
+}
