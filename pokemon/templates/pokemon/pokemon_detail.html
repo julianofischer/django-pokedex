@@ -1,7 +1,13 @@
 {% extends "pokemon/base.html" %}
 {% block title %} {{ object.nome }} {% endblock %}
 {% block body %}
-    <h1>Pokedex</h1>
-    <h2>{{ object.nome }}</h2>
-    <img src="{{object.foto.url}}">
+    <div class="column-container">
+        <h2>{{ object.nome }}</h2>
+        <img src="{{object.foto.url}}">
+        <div class="row-container">
+        {% for tipo in object.tipos.all %}
+            <span class="label" style="background-color:{{tipo.cor}};">{{tipo.nome}}</span>
+        {% endfor %}
+        </div>
+    </div>
 {% endblock %}

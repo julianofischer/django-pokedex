@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
+from django.urls import reverse
 from colorfield.fields import ColorField
 
 # Create your models here.
@@ -14,6 +15,9 @@ class Pokemon(models.Model):
     slug = models.SlugField(default='', max_length=100,
      allow_unicode=True, blank=True)
 
+    def get_absolute_url(self):
+        return reverse("pokemon_detail", kwargs={"slug": self.slug})
+    
     def save(self, *args, **kwargs):
         self.slug = slugify(self.nome)
         super(Pokemon, self).save(*args, **kwargs)

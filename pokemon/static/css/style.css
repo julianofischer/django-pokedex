@@ -1,3 +1,7 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
 li {
     color: red;
 }
@@ -20,6 +24,24 @@ img {
     align-content: center;
 }
 
+.column-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.row-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
 .pokemon-card {
     border-radius: 5px;
 }
@@ -34,4 +56,12 @@ img {
 .pokemon-card > img:hover {
   cursor: pointer;
   border: 1px solid gainsboro;
+}
+
+.label {
+    color: white;
+    font-weight: bold;
+    padding: 8px;
+    margin: 2px;
+    border-radius: 2px;
 }

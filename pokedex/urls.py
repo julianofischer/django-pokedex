@@ -23,7 +23,7 @@ from pokemon.views import PokemonListView, TipoListView, PokemonDetailView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('pokemons/', PokemonListView.as_view()),
-    path('pokemons/<slug:slug>', PokemonDetailView.as_view()),
+    path('pokemons/<slug:slug>', PokemonDetailView.as_view(), name='pokemon_detail'),
     #path('pokemons/<int:pk>', PokemonDetailView.as_view()),
     path('tipos/', TipoListView.as_view()),
 ]

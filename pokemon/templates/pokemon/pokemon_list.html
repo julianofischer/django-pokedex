@@ -2,7 +2,11 @@
 {% block body %}
 <div class="pokedex-container">
     <div class="pokemon-card">
-    {% for pokemon in object_list %}<img src="{{ pokemon.foto.url }}" alt="{{ pokemon.nome }}"/>{% endfor %}
+    {% for pokemon in object_list %}
+    <a href="{{pokemon.get_absolute_url}}">
+        <img src="{{ pokemon.foto.url }}" alt="{{ pokemon.nome }}"/>
+    </a>
+    {% endfor %}
     </div>
 </div>
 {% endblock %}
