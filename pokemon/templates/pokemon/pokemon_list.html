@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        {% load static %}
-        <meta charset="utf-8"/>
-        <title>Pokedex</title>
-        <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
-        <!-- <script src="script.js"></script> -->
-    </head>
-    <body class="bg-gradient">
-        <div class="pokedex-container">
-            <div class="pokemon-card">
-                {% for pokemon in object_list %}<img src="{{ pokemon.foto.url }}" alt="{{ pokemon.nome }}"/>{% endfor %}
-            </div>
-        </div>
-    </body>
-</html>
+{% extends "pokemon/base.html" %}
+{% block body %}
+<div class="pokedex-container">
+    <div class="pokemon-card">
+    {% for pokemon in object_list %}<img src="{{ pokemon.foto.url }}" alt="{{ pokemon.nome }}"/>{% endfor %}
+    </div>
+</div>
+{% endblock %}
