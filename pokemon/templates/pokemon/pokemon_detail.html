@@ -1,13 +1,27 @@
 {% extends "pokemon/base.html" %}
-{% block title %} {{ object.nome }} {% endblock %}
+{% block title %}{{ object.nome }}{% endblock %}
 {% block body %}
-    <div class="column-container">
+    <div class="pokedex-container bg-gradient column-container">
         <h2>{{ object.nome }}</h2>
-        <img src="{{object.foto.url}}">
-        <div class="row-container">
-        {% for tipo in object.tipos.all %}
-            <span class="label" style="background-color:{{tipo.cor}};">{{tipo.nome}}</span>
-        {% endfor %}
+        <div class="row-container pokemon-card-center">
+            <div class="column-container pokemon-card-left">◀ Involução</div>
+            <div class="column-container">
+                <img src="{{ object.foto.url }}">
+                <div class="column-container">
+                    <label for="ataque">Ataque</label>
+                    <progress id="ataque" value="{{ object.ataque }}" max="500">{{ object.ataque }}</progress>
+                    <label for="defesa">Defesa</label>
+                    <progress id="defesa" value="{{ object.defesa }}" max="500">{{ object.defesa }}</progress>
+                    <label for="stamina">Stamina</label>
+                    <progress id="stamina" value="{{ object.stamina }}" max="500">{{ object.stamina }}</progress>
+                </div>
+                <div class="row-container">
+                    {% for tipo in object.tipos.all %}
+                        <span class="label" style="background-color:{{ tipo.cor }};">{{ tipo.nome }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="column-container pokemon-card-right">Evoluções ▶</div>
         </div>
     </div>
 {% endblock %}

@@ -1,6 +1,6 @@
 {% extends "pokemon/base.html" %}
 {% block body %}
-<div class="pokedex-container">
+<div class="pokedex-container bg-gradient">
     <div class="pokemon-card">
     {% for pokemon in object_list %}
     <a href="{{pokemon.get_absolute_url}}">

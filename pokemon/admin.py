@@ -6,7 +6,7 @@ from pokemon import models
 #@admin.register(models.Pokemon)
 class PokemonAdmin(admin.ModelAdmin):
     list_display = ('nome', 'involucao', 'image_tag')
-    exclude = ('slug',)
+    # exclude = ('slug',)
 
 admin.site.register(models.Pokemon, PokemonAdmin)
 admin.site.register(models.Tipo)
