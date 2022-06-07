@@ -2,9 +2,16 @@
 {% block title %}{{ object.nome }}{% endblock %}
 {% block body %}
     <div class="pokedex-container bg-gradient column-container">
+        {% if object %}
         <h2>{{ object.nome }}</h2>
         <div class="row-container pokemon-card-center">
-            <div class="column-container pokemon-card-left">◀ Involução</div>
+            {% if object.involucao %}
+                <a href="{% url 'pokemon_invo_list' object.slug %}">
+                    <div class="column-container pokemon-card-left">◀ Involução</div>
+                </a>
+            {% else %}
+                <div class="column-container pokemon-card-left"></div>
+            {% endif %}
             <div class="column-container">
                 <img src="{{ object.foto.url }}">
                 <div class="column-container">
@@ -21,7 +28,12 @@
                     {% endfor %}
                 </div>
             </div>
-            <div class="column-container pokemon-card-right">Evoluções ▶</div>
+            <a href="{% url 'pokemon_evo_list' object.slug %}">
+                <div class="column-container pokemon-card-right">
+                    Evoluções ▶
+                </div>
+            </a>
         </div>
+        {% endif %}
     </div>
 {% endblock %}

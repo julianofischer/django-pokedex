@@ -73,6 +73,7 @@ img {
     height: 100%;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
+    min-width: 85px;
  }
 
 .pokemon-card > img:hover {

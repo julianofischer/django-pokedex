@@ -17,13 +17,15 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from pokemon.views import PokemonListView, TipoListView, PokemonDetailView
+from pokemon.views import PokemonListView, TipoListView, PokemonDetailView, PokemonEvolutionsListView, PokemonInvolutionListView
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('pokemons/', PokemonListView.as_view()),
     path('pokemons/<slug:slug>/', PokemonDetailView.as_view(), name='pokemon_detail'),
+    path('pokemons/<slug:slug>/evolucoes/', PokemonEvolutionsListView.as_view(), name='pokemon_evo_list'),
+    path('pokemons/<slug:slug>/involucao/', PokemonInvolutionListView.as_view(), name='pokemon_invo_list'),
     path('pokemons/<int:pk>', PokemonDetailView.as_view()),
     path('tipos/', TipoListView.as_view()),
 ]
