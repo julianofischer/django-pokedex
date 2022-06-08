@@ -2,10 +2,14 @@
 {% block title %} Tipos {% endblock %}
 
 {% block body %}
+<div class="column-container">
 <h1>Tipos</h1>
-<ul>
-    {% for tipo in object_list %}
-        <li>{{ tipo.nome }}</li>
-    {% endfor %}
-</ul>
+<div class="row-container">
+{% for tipo in object_list %}
+    <a href='{% url "pokemon_tipo_list" tipo.nome %}'>
+        <span class="label" style="background-color:{{tipo.cor}}">{{ tipo.nome }}</span>
+    </a>
+{% endfor %}
+</div>
+</div>
 {% endblock %}

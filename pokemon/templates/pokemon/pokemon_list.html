@@ -1,12 +1,38 @@
 {% extends "pokemon/base.html" %}
 {% block body %}
-<div class="pokedex-container bg-gradient">
-    <div class="pokemon-card">
-    {% for pokemon in object_list %}
-    <a href="{{pokemon.get_absolute_url}}">
-        <img src="{{ pokemon.foto.url }}" alt="{{ pokemon.nome }}"/>
-    </a>
-    {% endfor %}
+    <div class="pokedex-container bg-gradient">
+            {% for object in object_list %}
+                <div class="column-container">
+                    <h2>{{ object.nome }}</h2>
+                    <div class="row-container pokemon-card-center">
+                        {% if object.involucao %}
+                            <a href="{% url 'pokemon_invo_list' object.slug %}">
+                                <div class="column-container pokemon-card-left">◀ Involução</div>
+                            </a>
+                        {% else %}
+                            <div class="column-container pokemon-card-left"></div>
+                        {% endif %}
+                        <div class="column-container">
+                            <img src="{{ object.foto.url }}">
+                            <div class="column-container">
+                                <label for="ataque">Ataque</label>
+                                <progress id="ataque" value="{{ object.ataque }}" max="500">{{ object.ataque }}</progress>
+                                <label for="defesa">Defesa</label>
+                                <progress id="defesa" value="{{ object.defesa }}" max="500">{{ object.defesa }}</progress>
+                                <label for="stamina">Stamina</label>
+                                <progress id="stamina" value="{{ object.stamina }}" max="500">{{ object.stamina }}</progress>
+                            </div>
+                            <div class="row-container">
+                                {% for tipo in object.tipos.all %}
+                                    <span class="label" style="background-color:{{ tipo.cor }};">{{ tipo.nome }}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <a href="{% url 'pokemon_evo_list' object.slug %}">
+                            <div class="column-container pokemon-card-right">Evoluções ▶</div>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
     </div>
-</div>
 {% endblock %}

@@ -22,6 +22,15 @@ class PokemonInvolutionListView(DetailView):
         p = Pokemon.objects.get(slug=slug)
         return p.involucao
 
+class PokemonPorTipoListView(ListView):
+    model = Pokemon
+    def get_queryset(self):
+        qs = super().get_queryset() 
+        nome = self.kwargs['nome'].capitalize()
+        t = Tipo.objects.get(nome=nome)
+        qs = qs.filter(tipos=t)
+        return qs
+
 class PokemonDetailView(DetailView):
     model = Pokemon 
 

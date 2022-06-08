@@ -1,6 +1,6 @@
 body {
     font-family: 'Roboto', sans-serif;
-    margin: 0;
+    margin: 0px;
 }
 
 li {
@@ -13,6 +13,8 @@ img {
 }
 
 .bg-gradient {
+    min-width: 100%;
+    min-height: 100%;
     background: linear-gradient(#f2efff, #dfdefe, #ccdfff) fixed;
 }
 
@@ -23,8 +25,6 @@ img {
     justify-content: center;
     align-items: center;
     align-content: center;
-    width: 100%;
-    height: 100%;
 }
 
 .column-container {
@@ -34,6 +34,7 @@ img {
     justify-content: center;
     align-items: center;
     align-content: center;
+    margin: 10px;
 }
 
 .row-container {
@@ -87,4 +88,9 @@ img {
     padding: 8px;
     margin: 2px;
     border-radius: 2px;
+    text-decoration: none;
+}
+
+a{
+    text-decoration: none;
 }
